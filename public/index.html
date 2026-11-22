@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة البروكسي السريعة</title>
+    <style>
+        body { background: #0f172a; color: #fff; font-family: Tahoma, sans-serif; text-align: center; padding: 40px 15px; margin: 0; }
+        h1 { color: #38bdf8; margin-bottom: 25px; }
+        .search-box { display: flex; justify-content: center; gap: 10px; margin-bottom: 35px; }
+        input { width: 70%; max-width: 400px; padding: 12px; border-radius: 8px; border: none; font-size: 16px; direction: ltr; }
+        .btn-go { padding: 12px 20px; background: #38bdf8; color: #000; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; max-width: 650px; margin: 0 auto; }
+        .card { padding: 18px; border-radius: 12px; color: #fff; text-decoration: none; font-weight: bold; font-size: 18px; transition: 0.2s; }
+        .card:hover { transform: scale(1.05); }
+        .yt { background: #ff0000; }
+        .fb { background: #1877f2; }
+        .tt { background: #111; border: 2px solid #ff0050; }
+        .wa { background: #25d366; }
+        .salah { background: #dc2626; }
+    </style>
+</head>
+<body>
+    <h1>بوابتك السريعة للمنصات</h1>
+    <div class="search-box">
+        <input type="text" id="urlInput" placeholder="اكتب أي رابط هنا (مثال: google.com)">
+        <button class="btn-go" onclick="openProxy()">افتح</button>
+    </div>
+    <div class="grid">
+        <a href="/proxy/https://youtube.com" class="card yt">يوتيوب</a>
+        <a href="/proxy/https://facebook.com" class="card fb">فيسبوك</a>
+        <a href="/proxy/https://tiktok.com" class="card tt">تيك توك</a>
+        <a href="/proxy/https://whatsapp.com" class="card wa">واتساب</a>
+        <a href="/proxy/https://instagram.com" class="card salah">محمد صلاح</a>
+    </div>
+    <script>
+        function openProxy() {
+            let url = document.getElementById('urlInput').value.trim();
+            if (!url) return;
+            if (!url.startsWith('http')) { url = 'https://' + url; }
+            window.location.href = '/proxy/' + url;
+        }
+    </script>
+</body>
+</html>
