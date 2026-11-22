@@ -8,7 +8,7 @@ const unblocker = new Unblocker({ prefix: '/proxy/' });
 app.use(unblocker);
 app.use(express.static(path.join(__dirname, 'public')));
 
-const port = 80;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Proxy running on port ${port}`);
 }).on('upgrade', unblocker.onUpgrade);
